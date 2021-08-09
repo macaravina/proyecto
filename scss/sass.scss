@@ -1,0 +1,352 @@
+//variables
+
+$colorRosa: rgb(248, 79, 130);
+$colorVerde: rgb(102, 190, 189);
+$colorFondoRosa: rgb(231, 198, 215);
+$borde: 26px;
+$margenes: 30px;
+
+
+//Description lo deje solo en el index, porque me parece mejor que todos entren al inicio para poder ver la presentacion del emprendimiento, y de ahi pueden acceder rapido a las otras secciones
+//En tittle puse el nombre del emprendimiento en todas las secciones
+//keywords agregue a la seccion index, aclaraciones y contacto. En cada uno cambian las keywords
+
+
+
+//anidacion
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Dosis', sans-serif;
+}
+
+.body{
+    background-image: url("../img/canva.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+/*HEADER*/
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(250, 243, 221, 0.575);
+    padding-top: 3px;
+
+    img{
+        max-width: 130px;
+    }
+
+    //BEM
+    .navegador{
+
+        &__lista{
+            padding: 0;
+        }
+
+        &__items{
+            padding: 0;
+            list-style: none;
+            display: list-item;
+            text-align: center;
+            transition: 0.5s;
+
+            &:hover{
+                background-color: rgb(231, 198, 215);
+                border-radius: 200px 200px 200px 200px;
+            }
+        }
+
+        &__link{
+            text-decoration: none;
+            color: $colorVerde;
+            font-size: 15px;
+            font-weight: 600;
+
+            &:hover{
+                color: white;
+            }
+        }
+    }
+}
+/*FIN DE HEADER*/
+
+
+
+/*INDEX*/
+div{
+    h1{
+        color: $colorRosa;
+        font-weight: 500;
+        font-size: 50px;
+        text-align: center;
+        margin-bottom: 20px; 
+    }
+}
+
+.caja1{
+    background-color: rgba(255, 154, 173, 0.863);
+    color: rgba(70, 27, 53, 0.836);
+    text-align: center;
+    border-radius: 26px 26px 26px 26px;
+    margin: 30px;
+    padding: 10px; 
+    font-size: 15px;
+}
+/*FIN INDEX*/  
+
+
+
+/*ACLARACIONES*/
+//EXTEND
+.aclaraciones{
+    @extend .caja1;
+        text-align: left;
+        margin: 15px;
+        margin-top: 5px;
+    
+    &__titulo{
+        color: $colorVerde;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    &__lista{
+        list-style-position: inside;
+    }
+
+    &__item{
+        list-style-image: url("../img/destellos.png");
+        padding: 6px;
+    }
+}
+/*FIN ACLARACIONES*/
+
+
+
+/*GRID CONTACTO*/
+//BEM
+
+@mixin contacto($colorFondoRosa, $ancho, $borde, $padding, $margin){
+    background-color: $colorFondoRosa;
+    width: 250px;
+    border-radius: $borde;
+    padding: 5px;
+    margin: 5px;
+}
+
+.contacto{
+    display: grid;
+    grid-template-columns: repeat(2 1fr);
+    grid-template-rows: 2fr 0.5fr;
+    grid-template-areas: "form form"
+                         "gifuno gifdos";
+    justify-items: center;
+
+    &__gif{
+        grid-area: gifuno;
+        width: 80%;
+    }
+
+    &__form{
+        grid-area: form;
+        text-align: center;
+        align-self: center;
+    }
+
+    &__fieldset{
+        @include contacto(none, 250px, $borde, 5px, 5px);
+        border: 5px solid rgba(184, 242, 230, 0.767);
+        color: $colorVerde;
+    }
+
+    &__label{
+        background-color: rgb(231, 198, 215);
+        border-radius: 26px 26px 26px 26px;
+    }
+
+    &__input{
+        @include contacto($colorFondoRosa, 250px, $borde, 5px, 5px);
+        padding-left: 10px;
+        border: 2px solid rgb(231, 198, 215);
+        color: rgb(39, 100, 99);
+
+        &--newsletter{
+            width: 20px;
+        }
+
+        &--enviar:hover{
+            box-shadow: 0px 0px 8px 0px rgb(158, 114, 140);
+            color: white;
+        }
+    }
+
+    &__gifdos{
+        grid-area: gifdos;
+        width: 80%;
+    }
+}
+/*FIN CONTACTO*/
+
+
+
+/*FOOTER*/
+//BEM
+.footer{
+    background-image: linear-gradient(rgb(231, 191, 215),rgb(250, 243, 221));
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+
+    
+    &__link{
+        padding: 5px;
+    }
+
+    &__img{
+        max-width: 20px;
+        box-sizing:content-box;
+    }
+}
+/*FIN FOOTER*/
+
+
+/*ERROR*/
+.error{
+    background-image: url("../img/error.png");
+    background-repeat: no-repeat;
+    height: 70vw;
+    background-size: cover;
+
+    button{
+        background-color: $colorVerde;
+        border-radius: $borde;
+        border-color: $colorVerde;
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        padding: 0.3vw;
+        width: 10vw;
+        left: 40Vw;
+        top: 34vw;
+
+        a{
+            text-decoration: none;
+            font-size: 1.3vw;
+            color: rgb(147, 95, 167);
+            width: 100%;
+        }
+    }
+}
+/*FIN ERROR*/
+
+/*pantallas medianas*/
+@media only screen and (min-width:600px){
+
+    /*GRID CONTACTO*/
+    .contacto{
+        &__fieldset{
+            width: 600px;
+        }
+
+        &__input{
+            width: 300px;
+
+            &--newsletter{
+                width: 20px;
+            }
+        }
+    }
+    /*FIN CONTACTO*/
+
+}
+
+/*pantalla normal*/
+@media only screen and (min-width:992px){
+
+    /*HEADER*/
+    header{
+        padding-top: 15px;
+
+        img{
+            max-width: 150px;
+        }
+    
+
+        .navegador{
+            margin: 15px;
+
+            &__items{
+                display: inline;
+                padding: 15px;
+            }
+        }
+    }  
+    /*FIN HEADER*/
+
+
+    /*INDEX*/
+    div{
+        h1{
+            font-size: 60px;
+            margin-bottom: 30px; 
+        }
+    }
+
+    div{
+        .fotos{
+            width: 900px !important;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 26px 26px 26px 26px;
+        }
+    }
+    
+    .caja1{
+        margin-left: 180px;
+        margin-right: 180px;
+    }
+    /*FIN INDEX*/
+
+    
+
+    /*ACLARACIONES*/
+    .aclaraciones{
+          
+        padding: 20px;
+        margin: 90px;
+        margin-top: 35px;
+    
+        &__titulo{
+            font-size: 30px;
+            text-align: center;
+        }
+    }
+    /*FIN ACLARACIONES*/
+
+
+
+    /*GRID CONTACTO*/
+    .contacto{
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "gifuno form gifdos";
+        justify-content: center;
+        align-content: center;
+    
+        &__gif{
+            align-self: start;
+        }
+    
+        &__gifdos{
+            align-self: end;
+        }
+    }
+    /*FIN GRID CONTACTO*/
+}
