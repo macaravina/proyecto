@@ -56,6 +56,45 @@ div h1 {
   font-size: 15px; }
 
 /*FIN INDEX*/
+/*SERVICIOS*/
+div .servicios {
+  justify-content: center;
+  margin: 20px; }
+
+div div div div {
+  background-color: #b8f2e6;
+  color: #ff477e;
+  height: 100%;
+  padding: 10px; }
+  div div div div table .tablaAncho {
+    width: 100%; }
+  div div div div table tr td {
+    padding: 5px; }
+  div div div div table tr th {
+    color: #499796;
+    font-size: 22px; }
+
+/*FIN SERVICIOS*/
+/*GRID GALERIA*/
+#gridGaleria {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  justify-items: center;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-row-gap: 10px;
+  grid-column-gap: 5px;
+  padding: 10px; }
+  #gridGaleria .imagenGaleria {
+    width: 140px;
+    height: 140px;
+    border: 4px solid #e7c6d7;
+    transition: 1.5s; }
+    #gridGaleria .imagenGaleria:hover {
+      transform: scale(1.2, 1.2); }
+
+/*FIN GALERIA*/
 /*ACLARACIONES*/
 .aclaraciones {
   text-align: left;
@@ -131,32 +170,25 @@ div h1 {
     box-sizing: content-box; }
 
 /*FIN FOOTER*/
-/*ERROR*/
-.error {
-  background-image: url("../img/error.png");
-  background-repeat: no-repeat;
-  height: 70vw;
-  background-size: cover; }
-  .error button {
-    background-color: #66bebd;
-    border-radius: 26px;
-    border-color: #66bebd;
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    padding: 0.3vw;
-    width: 10vw;
-    left: 40Vw;
-    top: 34vw; }
-    .error button a {
-      text-decoration: none;
-      font-size: 1.3vw;
-      color: #935fa7;
-      width: 100%; }
-
-/*FIN ERROR*/
 /*pantallas medianas*/
 @media only screen and (min-width: 600px) {
+  /*SERVICIOS*/
+  .servicios {
+    margin-left: 70px;
+    margin-right: 70px;
+    justify-content: center; }
+  /*FIN SERVICIOS*/
+  /*GALERIA*/
+  #gridGaleria {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 20px;
+    padding: 20px; }
+    #gridGaleria .imagenGaleria {
+      width: 180px;
+      height: 180px;
+      border: 7px solid #e7c6d7; }
+  /*FIN GALERIA*/
   /*GRID CONTACTO*/
   .contacto__fieldset {
     width: 600px; }
@@ -192,6 +224,17 @@ div h1 {
     margin-left: 180px;
     margin-right: 180px; }
   /*FIN INDEX*/
+  /*GALERIA*/
+  #gridGaleria {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 40px;
+    padding: 40px; }
+    #gridGaleria .imagenGaleria {
+      width: 300px;
+      height: 300px;
+      border: 7px solid #e7c6d7; }
+  /*FIN GALERIA*/
   /*ACLARACIONES*/
   .aclaraciones {
     padding: 20px;
